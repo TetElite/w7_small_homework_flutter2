@@ -13,8 +13,8 @@ class LibraryViewModel extends ChangeNotifier {
   LibraryViewModel({
     required SongRepository songRepository,
     required PlayerState playerState,
-  })  : _songRepository = songRepository,
-        _playerState = playerState {
+  }) : _songRepository = songRepository,
+       _playerState = playerState {
     _playerState.addListener(_onPlayerStateChanged);
   }
 
