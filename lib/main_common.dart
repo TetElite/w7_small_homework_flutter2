@@ -15,13 +15,10 @@ void mainCommon(List<SingleChildWidget> providers) {
   runApp(
     MultiProvider(
       providers: providers,
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: MyApp()),
+      child: MaterialApp(debugShowCheckedModeBanner: false, home: MyApp()),
     ),
   );
 }
- 
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -33,20 +30,24 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int _currentIndex = 0;
 
-  final List<Widget> _pages = [HomeScreen(), LibraryScreen(), FavoriteScreen(), SettingsScreen()];
+  final List<Widget> _pages = [
+    HomeScreen(),
+    LibraryScreen(),
+    FavoriteScreen(),
+    SettingsScreen(),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    
     // 1- Get the globbal settings state
     AppSettingsState settingsState = context.read<AppSettingsState>();
- 
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: appTheme,
       home: Scaffold(
         body: _pages[_currentIndex],
-    
+
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,
           onTap: (index) {
@@ -56,15 +57,12 @@ class _MyAppState extends State<MyApp> {
           },
           selectedItemColor: settingsState.theme.color,
           items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(
               icon: Icon(Icons.library_music),
               label: 'Library',
             ),
-             BottomNavigationBarItem(
+            BottomNavigationBarItem(
               icon: Icon(Icons.heart_broken),
               label: 'Favorites',
             ),

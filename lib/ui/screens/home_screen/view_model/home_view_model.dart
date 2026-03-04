@@ -17,9 +17,9 @@ class HomeViewModel extends ChangeNotifier {
     required SongRepository songRepository,
     required UserHistoryRepository userHistoryRepository,
     required PlayerState playerState,
-  })  : _songRepository = songRepository,
-        _userHistoryRepository = userHistoryRepository,
-        _playerState = playerState {
+  }) : _songRepository = songRepository,
+       _userHistoryRepository = userHistoryRepository,
+       _playerState = playerState {
     _playerState.addListener(_onPlayerStateChanged);
   }
 
@@ -52,8 +52,9 @@ class HomeViewModel extends ChangeNotifier {
 
     // Recommended = songs NOT in the user's recent history
     final recentIdSet = recentIds.toSet();
-    _recommendedSongs =
-        allSongs.where((song) => !recentIdSet.contains(song.id)).toList();
+    _recommendedSongs = allSongs
+        .where((song) => !recentIdSet.contains(song.id))
+        .toList();
 
     notifyListeners();
   }

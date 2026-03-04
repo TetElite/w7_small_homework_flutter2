@@ -13,8 +13,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SongRepository songRepository = context.read<SongRepository>();
-    UserHistoryRepository userHistoryRepository =
-        context.read<UserHistoryRepository>();
+    UserHistoryRepository userHistoryRepository = context
+        .read<UserHistoryRepository>();
     PlayerState playerState = context.read<PlayerState>();
 
     return ChangeNotifierProvider(

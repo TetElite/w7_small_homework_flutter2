@@ -110,10 +110,7 @@ class SongTile extends StatelessWidget {
               children: [
                 const Text("playing", style: TextStyle(color: Colors.amber)),
                 const SizedBox(width: 8),
-                OutlinedButton(
-                  onPressed: onStop,
-                  child: const Text("STOP"),
-                ),
+                OutlinedButton(onPressed: onStop, child: const Text("STOP")),
               ],
             )
           : null,
